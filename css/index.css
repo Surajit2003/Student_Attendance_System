@@ -1,0 +1,14 @@
+/* this is main css styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* main container styling */
+.container{
+    min-height: 100vh;
+    max-width: 100vw;
+    background-color: #0f111a;
+}
+

@@ -1,0 +1,17 @@
+/* footer styling */
+
+footer {
+    width: 100%;
+    background-color: #0f111a;
+    color: #8ca6bc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #373e53;
+}
+
+footer h3 {
+    padding: 20px;
+    margin: 0px 2vw;
+    font-family: emoji;
+}
