@@ -35,7 +35,7 @@ if ($conn) {
 // writing sql query to make tables now
 
 // table 1 - Student Registration
-$sql = 'CREATE TABLE IF NOT EXISTS `student_registration` (`sno` INT(10) NOT NULL AUTO_INCREMENT , `student_roll` VARCHAR(20) NOT NULL , `student_email` VARCHAR(100) NULL DEFAULT NULL , `student_password` VARCHAR(255) NOT NULL , `registration_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`sno`), UNIQUE `student_registration_email_un` (`student_email`), UNIQUE `student_registration_roll_un` (`student_roll`)) ';
+$sql = 'CREATE TABLE IF NOT EXISTS `student_registration` (`sno` INT(10) NOT NULL AUTO_INCREMENT , `student_email` VARCHAR(100) NOT NULL , `student_password` VARCHAR(255) NOT NULL , `registration_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`sno`), UNIQUE `student_register_email_un` (`student_email`)) ENGINE = InnoDB';
 $result = mysqli_query($conn, $sql);
 if ($result) {
     $tablecreated = true;
@@ -44,7 +44,34 @@ if ($result) {
 }
 
 // table 2 - Teacher Registration
-$sql = 'CREATE TABLE IF NOT EXISTS `teacher_registration` (`sno` INT(10) NOT NULL AUTO_INCREMENT , `teacher_id` INT(20) NOT NULL , `teacher_email` VARCHAR(100) NULL DEFAULT NULL , `teacher_password` VARCHAR(255) NOT NULL , `registration_datetime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`sno`, `teacher_id`), UNIQUE `teacher_register_em_un` (`teacher_email`)) ';
+$sql = 'CREATE TABLE IF NOT EXISTS `teacher_registration` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `teacher_email` VARCHAR(100) NOT NULL , `teacher_password` VARCHAR(255) NOT NULL , `registration_datetime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`sno`), UNIQUE `teacher_register_email_un` (`teacher_email`)) ENGINE = InnoDB';
+$result = mysqli_query($conn, $sql);
+if ($result) {
+    $tablecreated = true;
+} else {
+    $tablecreated = false;
+}
+
+// table 3 - Contact US
+$sql = 'CREATE TABLE IF NOT EXISTS `contact_us` (`sno` INT(3) NOT NULL AUTO_INCREMENT , `name` VARCHAR(50) NOT NULL , `phone_number` CHAR(10) NOT NULL , `email` VARCHAR(100) NOT NULL , `user_concern` TEXT NOT NULL , `query_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`sno`)) ENGINE = InnoDB';
+$result = mysqli_query($conn, $sql);
+if ($result) {
+    $tablecreated = true;
+} else {
+    $tablecreated = false;
+}
+
+// table 4 - Messages
+$sql = 'CREATE TABLE IF NOT EXISTS `messages` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(5) NULL DEFAULT NULL , `teacher_id` INT(5) NULL DEFAULT NULL , `student_roll` VARCHAR(10) NOT NULL , `student_message` TEXT NULL DEFAULT NULL , `teacher_message` TEXT NULL DEFAULT NULL , `message_time` DATETIME NOT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB';
+$result = mysqli_query($conn, $sql);
+if ($result) {
+    $tablecreated = true;
+} else {
+    $tablecreated = false;
+}
+
+// table 5 - Student Profile
+$sql = 'CREATE TABLE IF NOT EXISTS `student_profile` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(5) NOT NULL , `student_name` VARCHAR(50) NOT NULL , `student_roll` VARCHAR(10) NOT NULL , `student_phone` CHAR(10) NOT NULL , `student_email` VARCHAR(10) NOT NULL , `student_gender` CHAR(1) NOT NULL , `student_stream` VARCHAR(5) NOT NULL , `student_semester` VARCHAR(10) NOT NULL , `registration` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`student_id`), UNIQUE `student_profile_sno_un` (`sno`), UNIQUE `student_profile_roll_un` (`student_roll`), UNIQUE `student_profile_phone_un` (`student_phone`), UNIQUE `student_profile_email_un` (`student_email`)) ENGINE = InnoDB';
 $result = mysqli_query($conn, $sql);
 if ($result) {
     $tablecreated = true;
