@@ -15,8 +15,15 @@
 
 /* main container styling */
 .container{
+    display: flex;
     min-height: 100vh;
     max-width: 100vw;
     background-color: #0f111a;
+}
+
+.container__rightMain{
+    background: rgb(86, 64, 64);
+    width: calc(100vw - 16.5vw);
+    height: 100vh;
 }
 

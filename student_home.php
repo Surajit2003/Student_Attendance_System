@@ -10,13 +10,13 @@
 </head>
 <body>
     <!-- including header for our html -->
-    <?php require("partitions/headers.php") ?>
+    <?php require("partitions/_headers.php") ?>
     <div class="container contents">
-        <?php require("partitions/leftNavOptions.php") ?>
+        <?php require("partitions/_leftNavOptions.php") ?>
         <div class="container__rightMain"></div>
     </div>
     <!-- including footer for our html -->
-    <?php require("partitions/footers.php") ?>
-    <script src="js/script.js"></script>
+    <?php require("partitions/_footers.php") ?>
+    <script src="js/index.js"></script>
 </body>
 </html>

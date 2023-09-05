@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/leftNav.css">
 <div class="container__leftNav">
     <div class="leftNav__contents">
-        <a href="index.php" class="contents__home">
+        <a href="student_home.php" class="contents__home">
             <span class="material-symbols-outlined">
                 home
             </span>
