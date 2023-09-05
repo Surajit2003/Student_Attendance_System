@@ -207,7 +207,7 @@ if ($result) {
             if (count === 4) {
                 dbconnect_alert.style.display = "block";
             }
-            if (count === 6) {
+            if (count === 8) {
                 table_alert.style.display = "block";
             }
         }, 1500);
