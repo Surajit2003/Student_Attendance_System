@@ -9,7 +9,7 @@
         </a>
         <div class="apps">
             <p class="apps__p">Progress</p>
-            <a href="#ecom" class="apps__e-commerce">
+            <a href="#progress" class="apps__e-commerce">
                 <span class="material-symbols-outlined">
                     analytics
                 </span>

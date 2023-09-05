@@ -8,7 +8,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="css/index.css">
-    <!-- <link rel="stylesheet" href="css/utils.css"> -->
 </head>
 
 <body>
@@ -33,7 +32,7 @@
                 </span>
                 <span class="unread-messages">No unread messages</span>
             </section>
-            <section class="charts">
+            <section class="charts" id="progress">
                 <div class="chart">
                     <p class="bar-chart-heading">Your Monthly Attendance Report</p>
                     <img src="https://www.amcharts.com/wp-content/uploads/2013/12/demo_7394_none-7-1024x690.png" alt="bar chart">
