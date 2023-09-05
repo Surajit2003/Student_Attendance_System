@@ -1,4 +1,12 @@
 /* this is main css styling */
+:root {
+    --clr-nav: #141824;
+    --clr-border: #373e53;
+    --clr-heading-mark: #6e7891;
+    --clr-hover-color: #31374a;
+    --clr-btn-text-logo: #9fa6bc;
+}
+
 * {
     margin: 0;
     padding: 0;

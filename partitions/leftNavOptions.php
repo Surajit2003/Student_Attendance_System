@@ -2,51 +2,61 @@
 <div class="container__leftNav">
     <div class="leftNav__contents">
         <a href="index.php" class="contents__home">
-            <span class="material-symbols-outlined">public</span>
+            <span class="material-symbols-outlined">
+                home
+            </span>
             <p>Home</p>
         </a>
         <div class="apps">
-            <p>Progress</p>
+            <p class="apps__p">Progress</p>
             <a href="#ecom" class="apps__e-commerce">
                 <span class="material-symbols-outlined">
-                    shopping_cart
+                    analytics
                 </span>
                 <p>Progress</p>
             </a>
             <a href="#crm" class="apps__crm">
                 <span class="material-symbols-outlined">
-                    call
+                    monitoring
                 </span>
                 <p>Charts</p>
+            </a>
         </div>
         <div class="apps">
-            <p>Report</p>
+            <p class="apps__p">Report</p>
             <a href="#ecom" class="apps__e-commerce">
                 <span class="material-symbols-outlined">
-                    shopping_cart
+                    lab_profile
                 </span>
                 <p>Report Card</p>
             </a>
             <a href="#crm" class="apps__crm">
                 <span class="material-symbols-outlined">
-                    call
+                    downloading
                 </span>
                 <p>Download Report</p>
+            </a>
         </div>
         <div class="apps">
-            <p>Message</p>
+            <p class="apps__p">Message</p>
             <a href="#ecom" class="apps__e-commerce">
                 <span class="material-symbols-outlined">
-                    shopping_cart
+                    forum
                 </span>
                 <p>Messages</p>
             </a>
             <a href="#crm" class="apps__crm">
                 <span class="material-symbols-outlined">
-                    call
+                    comment
                 </span>
                 <p>Send a Message</p>
+            </a>
         </div>
     </div>
-    <button id="collapse-btn">Collapse</button>
+    <button id="collapse-btn">
+        <span class="material-symbols-outlined">
+            arrow_back
+        </span>
+        <span>Collapse</span>
+    </button>
 </div>
