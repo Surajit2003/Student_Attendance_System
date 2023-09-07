@@ -72,7 +72,7 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                         <a class="nav-link disabled" aria-disabled="true" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="contactUs.php">Contact Us</a>
+                        <a class="nav-link" aria-current="page" href="contactUs.php">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="studentSendMessage.php">Student Message</a>

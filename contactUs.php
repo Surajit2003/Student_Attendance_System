@@ -92,7 +92,7 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                         <a class="nav-link disabled" aria-disabled="true">Teacher Message</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Other Options
                         </a>
