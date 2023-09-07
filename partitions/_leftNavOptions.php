@@ -52,6 +52,15 @@
                 <p>Send a Message</p>
             </a>
         </div>
+        <div class="apps">
+            <p class="apps__p">Connect With Us</p>
+            <a href="contactUs.php" class="apps__e-commerce">
+                <span class="material-symbols-outlined">
+                contact_support
+                </span>
+                <p>Contact Us</p>
+            </a>
+        </div>
     </div>
     <button id="collapse-btn">
         <span class="material-symbols-outlined">

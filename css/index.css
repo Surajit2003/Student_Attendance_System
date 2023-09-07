@@ -108,6 +108,7 @@
 
 .charts .chart {
     height: 60vh;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,4 +131,10 @@
 .charts img {
     width: 90%;
     height: 85%;
+}
+
+.chart .result{
+    position: absolute;
+    top: 41%;
+    font-size: 5rem;
 }

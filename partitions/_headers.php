@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="css/headers.css">
 <header>
     <nav class="header__navbar">
-        <div class="nav__left">phoneix</div>
+        <div class="nav__left">Attendance</div>
         <div class="nav__search">
             <span class="material-symbols-outlined search-icon">
                 search
@@ -10,7 +10,7 @@
         </div>
         <div class="nav__right">
             <!-- title is used to show a pop up message like below -->
-            <span class="right__themeToggle util-icons" title="Switch the theme.">  
+            <span class="right__themeToggle util-icons" title="Switch the theme.">
                 <span class="material-symbols-outlined">
                     dark_mode
                 </span>
@@ -27,7 +27,7 @@
             </span>
             <span class="right__imageLogo" title="Your profile">
                 <span class="material-symbols-outlined">
-                    face
+                    account_circle
                 </span>
             </span>
         </div>

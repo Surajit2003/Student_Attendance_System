@@ -41,13 +41,13 @@
             <section class="charts" id="progress">
                 <div class="chart">
                     <p class="bar-chart-heading">Your Monthly Attendance Report</p>
-                    <img src="https://www.amcharts.com/wp-content/uploads/2013/12/demo_7394_none-7-1024x690.png"
+                    <img src="https://www.pngall.com/wp-content/uploads/10/Bar-Chart-Vector-PNG-Photos.png"
                         alt="bar chart">
                 </div>
                 <div class="chart">
                     <p class="pie-chart-heading">Your Progress</p>
-                    <img src="https://www.vhv.rs/dpng/d/362-3626442_90-progress-bar-circle-hd-png-download.png"
-                        alt="pie chart">
+                    <img src="assets/progress.png" alt="pie chart">
+                    <span class="result">80%</span>
                 </div>
             </section>
         </div>
