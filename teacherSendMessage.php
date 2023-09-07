@@ -1,5 +1,9 @@
 <?php
-// INSERT INTO `contact_us` (`sno`, `name`, `phone_number`, `email`, `user_concern`, `query_time`) VALUES (NULL, 'Swagata Mukherjee', '1234567890', 'email@email.com', 'your website is not working properly, please fix it as soon as possible.', current_timestamp());
+// message query
+// INSERT INTO `messages` (`sno`, `student_id`, `teacher_id`, `student_roll`, `student_message`, `teacher_message`, `message_time`) VALUES (NULL, '0', NULL, '66', 'hey this is a test message', NULL, '2023-09-05 18:59:25.000000');
+
+// student profile query
+// INSERT INTO `student_profile` (`sno`, `student_id`, `student_name`, `student_roll`, `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`, `registration`) VALUES (NULL, '110', 'Swagata Mukherjee', '66', '1234567890', 'email@email.com', 'M', 'BCA', '5', current_timestamp());
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -17,13 +21,12 @@ if (!$conn) {
 $sent = false;
 $accountCreated = false;
 
+// if message is sent then
 if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
-    $name = $_POST["name"];
-    $phone = $_POST["phone"];
-    $email = $_POST["email"];
+    $teacher_id = $_POST["teacher_id"];
     $message = $_POST["message"];
 
-    $sql = "INSERT INTO `contact_us` (`name`, `phone_number`, `email`, `user_concern`) VALUES ('$name', '$phone', '$email', '$message')";
+    $sql = "INSERT INTO `messages` (`teacher_id`, `teacher_message`) VALUES ($teacher_id, '$message')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $sent = true;
@@ -48,7 +51,6 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
     }
 }
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -83,13 +85,13 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                         <a class="nav-link disabled" aria-disabled="true" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="contactUs.php">Contact Us</a>
+                        <a class="nav-link" aria-current="page" href="contactUs.php">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="studentSendMessage.php">Student Message</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="teacherSendMessage.php">Teacher Message</a>
+                        <a class="nav-link active" href="teacherSendMessage.php">Teacher Message</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -205,32 +207,20 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
             </div>
         </div>
     </div>
-
     <div class="container mt-3">
-        <h1 class="text-center">Contact Us</h1>
+        <h2 class="text-center">Send a Message</h2>
         <form method="post">
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" placeholder="Enter Your Name Here...."
-                    id="exampleInputPassword1">
+                <label for="userName" class="form-label">Your ID</label>
+                <input type="number" name="teacher_id" class="form-control" id="exampleInputEmail1"
+                    placeholder="Enter Your ID Here...." aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Phone</label>
-                <input type="tel" class="form-control" name="phone" placeholder="Enter Your Phone Number Here...."
-                    id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                    placeholder="Enter Your Email Address Here...." aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-3">
-                <label for="floatingTextarea" class="form-label">Your Concern</label>
-                <textarea class="form-control" name="message" placeholder="Enter Your Concern Here...."
+                <label for="floatingTextarea" class="form-label">Message</label>
+                <textarea class="form-control" name="message" placeholder="Enter Your Message Here...."
                     id="floatingTextarea"></textarea>
             </div>
-            <button type="submit" name="sent" value="sent" class="btn btn-primary">Submit</button>
+            <button type="submit" name="sent" value="sent" class="btn btn-primary">Send</button>
         </form>
         <?php
         if ($sent) {
@@ -247,10 +237,11 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
     <?php
     if ($accountCreated) {
         echo '  <script>
-                    alert("Your Account Is Created Successfully!")
-                </script>';
+                        alert("Your Account Is Created Successfully!")
+                    </script>';
     }
     ?>
+
 </body>
 
 </html>

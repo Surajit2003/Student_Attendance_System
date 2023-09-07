@@ -62,7 +62,7 @@ if ($result) {
 }
 
 // table 4 - Messages
-$sql = 'CREATE TABLE IF NOT EXISTS `messages` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(5) NULL DEFAULT NULL , `teacher_id` INT(5) NULL DEFAULT NULL , `student_roll` VARCHAR(10) NOT NULL , `student_message` TEXT NULL DEFAULT NULL , `teacher_message` TEXT NULL DEFAULT NULL , `message_time` DATETIME NOT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB';
+$sql = 'CREATE TABLE IF NOT EXISTS `messages` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(5) NULL DEFAULT NULL , `teacher_id` INT(5) NULL DEFAULT NULL , `student_roll` VARCHAR(10) NULL DEFAULT NULL , `student_message` TEXT NULL DEFAULT NULL , `teacher_message` TEXT NULL DEFAULT NULL , `message_time` DATETIME NOT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB';
 $result = mysqli_query($conn, $sql);
 if ($result) {
     $tablecreated = true;
