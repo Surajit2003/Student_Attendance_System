@@ -39,13 +39,13 @@
         </div>
         <div class="apps">
             <p class="apps__p">Message</p>
-            <a href="#ecom" class="apps__e-commerce">
+            <a href="readMessage.php" class="apps__e-commerce">
                 <span class="material-symbols-outlined">
                     forum
                 </span>
                 <p>Messages</p>
             </a>
-            <a href="#crm" class="apps__crm">
+            <a href="studentSendMessage.php" class="apps__crm">
                 <span class="material-symbols-outlined">
                     comment
                 </span>

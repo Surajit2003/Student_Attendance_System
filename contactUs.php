@@ -13,7 +13,9 @@ if (!$conn) {
                     Sorry we failed to connect:' . mysqli_connect_error() . '</div>';
 }
 
+// utility variables
 $sent = false;
+$accountCreated = false;
 
 if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
     $name = $_POST["name"];
@@ -25,6 +27,24 @@ if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $sent = true;
+    }
+}
+
+// if account is created then
+if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount") {
+    $student_id = $_POST['student_id'];
+    $student_name = $_POST['student_name'];
+    $student_roll = $_POST['student_roll'];
+    $student_phone = $_POST['student_phone'];
+    $student_email = $_POST['student_email'];
+    $gender = $_POST['gender'];
+    $stream = $_POST['stream'];
+    $student_semester = $_POST['student_semester'];
+
+    $sql = "INSERT INTO `student_profile` (`student_id`, `student_name`, `student_roll`, `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`) VALUES ('$student_id', '$student_name', '$student_roll', '$student_phone', '$student_email', '$gender', '$stream', '$student_semester');";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        $accountCreated = true;
     }
 }
 ?>
@@ -92,12 +112,100 @@ if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
                     <button class="btn btn-success" type="submit">Search</button>
                 </form>
                 <!-- Create account modal opener button -->
-                <button type="button" class="btn btn-outline-success mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
                     Create Account
                 </button>
             </div>
         </div>
     </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create Your Account</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- create account form -->
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Student ID</label>
+                            <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Student Name</label>
+                            <input type="text" name="student_name" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Student Roll</label>
+                            <input type="number" name="student_roll" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Student Phone</label>
+                            <input type="tel" name="student_phone" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Student Email</label>
+                            <input type="email" name="student_email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <label class="form-check-label mb-2" for="gender">Select Your Gender</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="M">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="F">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="O">
+                            <label class="form-check-label" for="other">Other</label>
+                        </div><br>
+                        <label class="form-check-label my-2" for="stream">Select Your Stream</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="stream" id="bca" value="BCA">
+                            <label class="form-check-label" for="bca">BCA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="stream" id="bba" value="BBA">
+                            <label class="form-check-label" for="bba">BBA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="stream" id="mca" value="MCA">
+                            <label class="form-check-label" for="mca">MCA</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="stream" id="mba" value="MBA">
+                            <label class="form-check-label" for="mba">MBA</label>
+                        </div>
+                        <select class="form-select mt-3" name="student_semester" aria-label="Default select example">
+                            <option selected>Select Your Semester..</option>
+                            <option value="1">First</option>
+                            <option value="2">Second</option>
+                            <option value="3">Third</option>
+                            <option value="4">Fourth</option>
+                            <option value="5">Fifth</option>
+                            <option value="6">Sixth</option>
+                        </select>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" name="createAccount" value="createAccount"
+                                class="btn btn-primary">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-3">
         <h1 class="text-center">Contact Us</h1>
         <form method="post">
@@ -136,6 +244,13 @@ if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
+    <?php
+    if ($accountCreated) {
+        echo '  <script>
+                    alert("Your Account Is Created Successfully!")
+                </script>';
+    }
+    ?>
 </body>
 
 </html>
