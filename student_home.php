@@ -21,6 +21,12 @@
                 <span class="welcome-text">
                     Welcome <i>'Swagata'</i>
                 </span>
+                <a href="logout.php" class="logout" id="logout">
+                    <span class="material-symbols-outlined">
+                        power_settings_new
+                    </span>
+                    <p>Logout</p>
+                </a>
             </div>
             <section class="nofifications">
                 <span class="warnings">0 Warnings</span>
@@ -35,11 +41,13 @@
             <section class="charts" id="progress">
                 <div class="chart">
                     <p class="bar-chart-heading">Your Monthly Attendance Report</p>
-                    <img src="https://www.amcharts.com/wp-content/uploads/2013/12/demo_7394_none-7-1024x690.png" alt="bar chart">
+                    <img src="https://www.amcharts.com/wp-content/uploads/2013/12/demo_7394_none-7-1024x690.png"
+                        alt="bar chart">
                 </div>
                 <div class="chart">
                     <p class="pie-chart-heading">Your Progress</p>
-                    <img src="https://www.vhv.rs/dpng/d/362-3626442_90-progress-bar-circle-hd-png-download.png" alt="pie chart">
+                    <img src="https://www.vhv.rs/dpng/d/362-3626442_90-progress-bar-circle-hd-png-download.png"
+                        alt="pie chart">
                 </div>
             </section>
         </div>

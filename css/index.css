@@ -33,10 +33,30 @@
     /* background-color: red; */
     color: var(--clr-btn-text-logo);
     margin: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .welcome-heading .welcome-text {
     font-size: 3.2rem;
+}
+
+.welcome-heading .logout {
+    text-decoration: none;
+    color: var(--clr-btn-text-logo);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.welcome-heading .logout:hover {
+    color: white;
+    background-color: #d43e3e;
 }
 
 .container__rightMain .nofifications {
