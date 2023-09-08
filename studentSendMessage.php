@@ -133,7 +133,7 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                 </div>
                 <div class="modal-body">
                     <!-- create account form -->
-                    <form method="post">
+                    <form method="post" id="account_create">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student ID</label>
                             <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"
@@ -198,12 +198,12 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                             <option value="5">Fifth</option>
                             <option value="6">Sixth</option>
                         </select>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" name="createAccount" value="createAccount"
-                                class="btn btn-primary">Create Account</button>
-                        </div>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="account_create" name="createAccount" value="createAccount"
+                        class="btn btn-primary">Create Account</button>
                 </div>
             </div>
         </div>
