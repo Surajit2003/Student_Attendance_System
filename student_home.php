@@ -1,3 +1,28 @@
+<?php
+    //UPDATE `student_attendance` SET `september` = '1' WHERE `student_attendance`.`student_id` = 2115230110;
+
+    // SELECT * FROM `student_attendance` WHERE student_id='2115230110';
+    
+    include("partitions/_dbconnect.php");
+    $month = strtolower(date("F")); # this line of code gets current month
+
+    $student_id = 2115230110;
+    $student_name = 'Swagata Mukherjee';
+    $student_roll = '15201221066';
+
+    $getStudent = "SELECT * FROM `student_attendance` WHERE student_id='$student_id'";
+    $result = mysqli_query($conn, $getStudent);
+    $studentData = mysqli_fetch_assoc($result);
+    $attendance = $studentData["$month"];
+
+    // post request handle
+    if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
+        $attendanceUpdate = (int)$_POST["student_attendance"];
+        $updateQuery = "UPDATE `student_attendance` SET `$month` = $attendanceUpdate WHERE `student_id` = '$student_id'";
+        $result = mysqli_query($conn, $updateQuery);
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,12 +55,15 @@
             </div>
             <section class="nofifications">
                 <span class="warnings">0 Warnings</span>
-                <span class="scanner-button">
-                    <span class="material-symbols-outlined">
-                        qr_code_scanner
-                    </span>
+                <form method="post" id="attendance">
+                    <?php
+                    echo '<input type="hidden" name="student_attendance" value="' . (int) $attendance + 1 . '">'
+                    ?>
+                </form>
+                <button type="submit" name="scan" value="scan" form="attendance" class="scanner-button">
+                    <span class="material-symbols-outlined">qr_code_scanner</span>
                     <span class="scanner-text">Scanner</span>
-                </span>
+                </button>
                 <span class="unread-messages">No unread messages</span>
             </section>
             <section class="charts" id="progress">
@@ -55,6 +83,14 @@
     <!-- including footer for our html -->
     <?php require("partitions/_footers.php") ?>
     <script src="js/index.js"></script>
+    <?php
+    if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
+        echo '<script>
+        alert("Name : ' . $student_name . '\nRoll : ' . $student_roll . '\nAttendance Count : ' . $_POST["student_attendance"] . '");
+    </script>';
+    }
+    ?>
+
 </body>
 
 </html>

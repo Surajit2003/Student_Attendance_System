@@ -72,6 +72,11 @@
     border-bottom: 1px solid var(--clr-border);
 }
 
+.container__rightMain .nofifications form{
+    position: absolute;
+    transform: scale(0);
+}
+
 .nofifications .scanner-button {
     width: 90px;
     height: 95%;
@@ -81,6 +86,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--clr-btn-text-logo);
     transition: 0.3s ease-in;
 }
 
