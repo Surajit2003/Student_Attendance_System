@@ -1,17 +1,19 @@
 <?php
 // default bool variables
-$submitted = false;
-
+$login = false;
+$failed = false;
 include('partitions/_dbconnect.php');
-if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-    $roll = $_POST['roll'];
+if (isset($_POST["login"]) && $_POST["login"] == "login") {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $sql = "INSERT INTO `student_registration` (`student_roll`, `student_email`, `student_password`) VALUES ('$roll', '$email', '$password' )";
+    $sql = "SELECT * FROM `student_registration` WHERE `student_email`='$email' AND `student_password`='$password'";
     $result = mysqli_query($conn, $sql);
-    if ($result) {
-        $submitted = true;
-        header('location: login.php');
+    $num = mysqli_num_rows($result);
+    if ($num == 1) {
+        $login = true;
+        header('location: student_home.php?login=' . $login);
+    } else {
+        $failed = true;
     }
 }
 ?>
@@ -45,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                     <label for="password">Password</label>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
-                <button type="submit" class="btn animation" style="--i:3; --j:24;">Login</button>
+                <button type="submit" name="login" value="login" class="btn animation"
+                    style="--i:3; --j:24;">Login</button>
                 <div class="logreg-link animation" style="--i:4; --j:25;">
                     <p>Don't have an account? <a href="#" class="register-link" title="Click Here to Sign Up">Sign
                             Up</a></p>
@@ -61,11 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         <div class="form-box register">
             <h2 class="animation" style="--i:17; --j:0;">Sign Up</h2>
             <form action="register.php" method="post" autocomplete="off" onsubmit="showAnimation()">
-                <div class="input-box animation" style="--i:18; --j:1;">
-                    <input type="text" name="roll" id="roll" required>
-                    <label for="roll">University Roll</label>
-                    <i class='bx bxs-registered'></i>
-                </div>
                 <div class="input-box animation" style="--i:19; --j:2;">
                     <input type="email" name="email" required>
                     <label for="email">Email</label>
@@ -76,7 +74,13 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                     <label for="password">Password</label>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
-                <button type="submit" class="btn animation" style="--i:21; --j:4;">Sign Up</button>
+                <div class="input-box animation" style="--i:20; --j:3;">
+                    <input type="password" name="cpassword" required>
+                    <label for="password">Confirm Password</label>
+                    <i class='bx bxs-lock'></i>
+                </div>
+                <button type="submit" name="register" value="register" class="btn animation" style="--i:21; --j:4;">Sign
+                    Up</button>
                 <div class="logreg-link animation" style="--i:22; --j:5;">
                     <p>Already have an account? <a href="#" class="login-link" title="Click Here to Login">Login</a></p>
                 </div>
@@ -94,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         const registerLink = document.querySelector('.register-link');
         const loginLink = document.querySelector('.login-link');
 
-        function showAnimation(){
+        function showAnimation() {
             alert("Registration Successful! Click Ok to Login...");
         }
 
@@ -106,6 +110,14 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             wrapper.classList.remove('active');
         });
     </script>
+    <?php
+    if ($failed) {
+        echo '<script>
+            alert("Invalid Credentials");
+        </script>';
+    }
+    ?>
+
 </body>
 
 </html>

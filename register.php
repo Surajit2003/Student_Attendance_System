@@ -3,11 +3,11 @@
 $submitted = false;
 
 include('partitions/_dbconnect.php');
-if ($_SERVER["REQUEST_METHOD"] == 'POST') {
-    $roll = $_POST['roll'];
+if (isset($_POST["register"]) && $_POST["register"] == "register") {
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $sql = "INSERT INTO `student_registration` (`student_roll`, `student_email`, `student_password`) VALUES ('$roll', '$email', '$password' )";
+    $cpassword = $_POST['cpassword'];
+    $sql = "INSERT INTO `student_registration` (`student_email`, `student_password`) VALUES ('$email', '$password')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $submitted = true;
@@ -61,11 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         <div class="form-box register">
             <h2 class="animation" style="--i:17; --j:0;">Sign Up</h2>
             <form action="register.php" method="post" autocomplete="off" onsubmit="showAnimation()">
-                <div class="input-box animation" style="--i:18; --j:1;">
-                    <input type="text" name="roll" id="roll" required>
-                    <label for="roll">University Roll</label>
-                    <i class='bx bxs-registered'></i>
-                </div>
                 <div class="input-box animation" style="--i:19; --j:2;">
                     <input type="email" name="email" required>
                     <label for="email">Email</label>
@@ -75,6 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == 'POST') {
                     <input type="password" name="password" required>
                     <label for="password">Password</label>
                     <i class='bx bxs-lock-alt'></i>
+                </div>
+                <div class="input-box animation" style="--i:20; --j:3;">
+                    <input type="password" name="cpassword" required>
+                    <label for="password">Confirm Password</label>
+                    <i class='bx bxs-lock'></i>
                 </div>
                 <button type="submit" class="btn animation" style="--i:21; --j:4;">Sign Up</button>
                 <div class="logreg-link animation" style="--i:22; --j:5;">
