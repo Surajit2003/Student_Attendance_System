@@ -62,7 +62,7 @@ if ($result) {
 }
 
 // table 4 - Messages
-$sql = 'CREATE TABLE IF NOT EXISTS `messages` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(5) NULL DEFAULT NULL , `teacher_id` INT(5) NULL DEFAULT NULL , `student_roll` VARCHAR(10) NULL DEFAULT NULL , `student_message` TEXT NULL DEFAULT NULL , `teacher_message` TEXT NULL DEFAULT NULL , `message_time` DATETIME NOT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB';
+$sql = 'CREATE TABLE IF NOT EXISTS `messages` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(10) NULL DEFAULT NULL , `teacher_id` INT(5) NULL DEFAULT NULL , `student_roll` VARCHAR(10) NULL DEFAULT NULL , `student_message` TEXT NULL DEFAULT NULL , `teacher_message` TEXT NULL DEFAULT NULL , `message_time` DATETIME NOT NULL , PRIMARY KEY (`sno`)) ENGINE = InnoDB';
 $result = mysqli_query($conn, $sql);
 if ($result) {
     $tablecreated = true;
@@ -71,7 +71,7 @@ if ($result) {
 }
 
 // table 5 - Student Profile
-$sql = 'CREATE TABLE IF NOT EXISTS `student_profile` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(5) NOT NULL , `student_name` VARCHAR(50) NOT NULL , `student_roll` VARCHAR(10) NOT NULL , `student_phone` CHAR(10) NOT NULL , `student_email` VARCHAR(100) NOT NULL , `student_gender` CHAR(1) NOT NULL , `student_stream` VARCHAR(5) NOT NULL , `student_semester` INT(2) NOT NULL , `registration` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`student_id`), UNIQUE `student_profile_sno_un` (`sno`), UNIQUE `student_profile_roll_un` (`student_roll`), UNIQUE `student_profile_phone_un` (`student_phone`), UNIQUE `student_profile_email_un` (`student_email`)) ENGINE = InnoDB';
+$sql = 'CREATE TABLE IF NOT EXISTS `student_profile` (`sno` INT(5) NOT NULL AUTO_INCREMENT , `student_id` INT(10) NOT NULL , `student_name` VARCHAR(50) NOT NULL , `student_roll` VARCHAR(12) NOT NULL , `student_phone` CHAR(10) NOT NULL , `student_email` VARCHAR(100) NOT NULL , `student_gender` CHAR(1) NOT NULL , `student_stream` VARCHAR(5) NOT NULL , `student_semester` INT(2) NOT NULL , `registration` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`student_id`), UNIQUE `student_profile_sno_un` (`sno`), UNIQUE `student_profile_roll_un` (`student_roll`), UNIQUE `student_profile_phone_un` (`student_phone`), UNIQUE `student_profile_email_un` (`student_email`)) ENGINE = InnoDB';
 $result = mysqli_query($conn, $sql);
 if ($result) {
     $tablecreated = true;
@@ -89,7 +89,7 @@ if ($result) {
 }
 
 // table 7 - student attendance
-$sql = 'CREATE TABLE IF NOT EXISTS `student_attendance` (`student_id` INT(5) NOT NULL , `student_name` VARCHAR(50) NOT NULL , `student_roll` VARCHAR(10) NOT NULL , `january` INT(2) NULL DEFAULT NULL , `february` INT(2) NULL DEFAULT NULL , `march` INT(2) NULL DEFAULT NULL , `april` INT(2) NULL DEFAULT NULL , `may` INT(2) NULL DEFAULT NULL , `june` INT(2) NULL DEFAULT NULL , `july` INT(2) NULL DEFAULT NULL , `august` INT(2) NULL DEFAULT NULL , `september` INT(2) NULL DEFAULT NULL , `october` INT(2) NULL DEFAULT NULL , `november` INT(2) NULL DEFAULT NULL , `december` INT(2) NULL DEFAULT NULL , `remarks` VARCHAR(10) NOT NULL , `grade` CHAR(1) NOT NULL , PRIMARY KEY (`student_id`), UNIQUE `student_attendance_roll_un` (`student_roll`)) ENGINE = InnoDB';
+$sql = 'CREATE TABLE IF NOT EXISTS `student_attendance` (`student_id` INT(10) NOT NULL , `student_name` VARCHAR(50) NOT NULL , `student_roll` VARCHAR(12) NOT NULL , `january` INT(2) NULL DEFAULT NULL , `february` INT(2) NULL DEFAULT NULL , `march` INT(2) NULL DEFAULT NULL , `april` INT(2) NULL DEFAULT NULL , `may` INT(2) NULL DEFAULT NULL , `june` INT(2) NULL DEFAULT NULL , `july` INT(2) NULL DEFAULT NULL , `august` INT(2) NULL DEFAULT NULL , `september` INT(2) NULL DEFAULT NULL , `october` INT(2) NULL DEFAULT NULL , `november` INT(2) NULL DEFAULT NULL , `december` INT(2) NULL DEFAULT NULL , `remarks` VARCHAR(10) NOT NULL , `grade` CHAR(1) NOT NULL , PRIMARY KEY (`student_id`), UNIQUE `student_attendance_roll_un` (`student_roll`)) ENGINE = InnoDB';
 $result = mysqli_query($conn, $sql);
 if ($result) {
     $tablecreated = true;
