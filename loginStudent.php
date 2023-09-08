@@ -36,7 +36,7 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
         <!-- this is login part -->
         <div class="form-box login">
             <h2 class="animation" style="--i:0; --j:21;">Login</h2>
-            <form action="login.php" method="post" autocomplete="off">
+            <form method="post" autocomplete="off">
                 <div class="input-box animation" style="--i:1;  --j:22;">
                     <input type="email" name="email" required>
                     <label for="email">Email</label>
@@ -63,7 +63,7 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
         <!-- this is register part -->
         <div class="form-box register">
             <h2 class="animation" style="--i:17; --j:0;">Sign Up</h2>
-            <form action="register.php" method="post" autocomplete="off" onsubmit="showAnimation()">
+            <form action="registerStudent.php" method="post" autocomplete="off" onsubmit="showAnimation()">
                 <div class="input-box animation" style="--i:19; --j:2;">
                     <input type="email" name="email" required>
                     <label for="email">Email</label>

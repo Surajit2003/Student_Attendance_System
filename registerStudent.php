@@ -11,7 +11,7 @@ if (isset($_POST["register"]) && $_POST["register"] == "register") {
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $submitted = true;
-        header('location: login.php');
+        header('location: loginStudent.php');
     }
 }
 ?>
@@ -34,7 +34,7 @@ if (isset($_POST["register"]) && $_POST["register"] == "register") {
         <!-- this is login part -->
         <div class="form-box login">
             <h2 class="animation" style="--i:0; --j:21;">Login</h2>
-            <form action="login.php" method="post" autocomplete="off">
+            <form action="loginStudent.php" method="post" autocomplete="off">
                 <div class="input-box animation" style="--i:1;  --j:22;">
                     <input type="email" name="email" required>
                     <label for="email">Email</label>
@@ -60,7 +60,7 @@ if (isset($_POST["register"]) && $_POST["register"] == "register") {
         <!-- this is register part -->
         <div class="form-box register">
             <h2 class="animation" style="--i:17; --j:0;">Sign Up</h2>
-            <form action="register.php" method="post" autocomplete="off" onsubmit="showAnimation()">
+            <form method="post" autocomplete="off" onsubmit="showAnimation()">
                 <div class="input-box animation" style="--i:19; --j:2;">
                     <input type="email" name="email" required>
                     <label for="email">Email</label>

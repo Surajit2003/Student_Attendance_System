@@ -86,8 +86,10 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                             Other Options
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="login.php">Login</a></li>
-                            <li><a class="dropdown-item" href="register.php">Sign Up</a></li>
+                            <li><a class="dropdown-item" href="loginStudent.php">Login as Student</a></li>
+                            <li><a class="dropdown-item" href="loginTeacher.php">Login as Teacher</a></li>
+                            <li><a class="dropdown-item" href="registerStudent.php">Sign Up as Student</a></li>
+                            <li><a class="dropdown-item" href="registerTeacher.php">Sign Up as Teacher</a></li>
                             <li><a class="dropdown-item" href="readMessage.php">Messages</a></li>
                             <li>
                                 <hr class="dropdown-divider">
