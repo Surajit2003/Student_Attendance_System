@@ -2,8 +2,8 @@
 // message query
 // INSERT INTO `messages` (`sno`, `student_id`, `teacher_id`, `student_roll`, `student_message`, `teacher_message`, `message_time`) VALUES (NULL, '0', NULL, '66', 'hey this is a test message', NULL, '2023-09-05 18:59:25.000000');
 
-// student profile query
-// INSERT INTO `student_profile` (`sno`, `student_id`, `student_name`, `student_roll`, `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`, `registration`) VALUES (NULL, '110', 'Swagata Mukherjee', '66', '1234567890', 'email@email.com', 'M', 'BCA', '5', current_timestamp());
+// teacher profile query
+// INSERT INTO `teacher_profile` (`sno`, `teacher_id`, `teacher_name`, `teacher_phone`, `teacher_email`, `teacher_gender`, `registration_time`) VALUES (NULL, '100', 'Suman Das', '1231', 'emailteacher@teacher.com', 'M', current_timestamp());
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -35,16 +35,13 @@ if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
 
 // if account is created then
 if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount") {
-    $student_id = $_POST['student_id'];
-    $student_name = $_POST['student_name'];
-    $student_roll = $_POST['student_roll'];
-    $student_phone = $_POST['student_phone'];
-    $student_email = $_POST['student_email'];
+    $teacher_id = $_POST['teacher_id'];
+    $teacher_name = $_POST['teacher_name'];
+    $teacher_phone = $_POST['teacher_phone'];
+    $teacher_email = $_POST['teacher_email'];
     $gender = $_POST['gender'];
-    $stream = $_POST['stream'];
-    $student_semester = $_POST['student_semester'];
 
-    $sql = "INSERT INTO `student_profile` (`student_id`, `student_name`, `student_roll`, `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`) VALUES ('$student_id', '$student_name', '$student_roll', '$student_phone', '$student_email', '$gender', '$stream', '$student_semester');";
+    $sql = "INSERT INTO `teacher_profile` (`teacher_id`, `teacher_name`, `teacher_phone`, `teacher_email`, `teacher_gender`) VALUES ('$teacher_id', '$teacher_name', '$teacher_phone', '$teacher_email', '$gender')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $accountCreated = true;
@@ -132,30 +129,25 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                 </div>
                 <div class="modal-body">
                     <!-- create account form -->
-                    <form method="post">
+                    <form method="post" id="teacherAccountCreate">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student ID</label>
-                            <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"
+                            <label for="exampleInputEmail1" class="form-label">Teacher ID</label>
+                            <input type="number" name="teacher_id" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Name</label>
-                            <input type="text" name="student_name" class="form-control" id="exampleInputEmail1"
+                            <label for="exampleInputEmail1" class="form-label">Teacher Name</label>
+                            <input type="text" name="teacher_name" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Roll</label>
-                            <input type="number" name="student_roll" class="form-control" id="exampleInputEmail1"
+                            <label for="exampleInputEmail1" class="form-label">Teacher Phone</label>
+                            <input type="tel" name="teacher_phone" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Phone</label>
-                            <input type="tel" name="student_phone" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Email</label>
-                            <input type="email" name="student_email" class="form-control" id="exampleInputEmail1"
+                            <label for="exampleInputEmail1" class="form-label">Teacher Email</label>
+                            <input type="email" name="teacher_email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
                         <label class="form-check-label mb-2" for="gender">Select Your Gender</label><br>
@@ -170,39 +162,13 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="gender" id="other" value="O">
                             <label class="form-check-label" for="other">Other</label>
-                        </div><br>
-                        <label class="form-check-label my-2" for="stream">Select Your Stream</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="bca" value="BCA">
-                            <label class="form-check-label" for="bca">BCA</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="bba" value="BBA">
-                            <label class="form-check-label" for="bba">BBA</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="mca" value="MCA">
-                            <label class="form-check-label" for="mca">MCA</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="mba" value="MBA">
-                            <label class="form-check-label" for="mba">MBA</label>
-                        </div>
-                        <select class="form-select mt-3" name="student_semester" aria-label="Default select example">
-                            <option selected>Select Your Semester..</option>
-                            <option value="1">First</option>
-                            <option value="2">Second</option>
-                            <option value="3">Third</option>
-                            <option value="4">Fourth</option>
-                            <option value="5">Fifth</option>
-                            <option value="6">Sixth</option>
-                        </select>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" name="createAccount" value="createAccount"
-                                class="btn btn-primary">Create Account</button>
                         </div>
                     </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="createAccount" form="teacherAccountCreate" value="createAccount"
+                        class="btn btn-primary">Create Account</button>
                 </div>
             </div>
         </div>
