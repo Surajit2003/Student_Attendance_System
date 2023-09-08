@@ -27,7 +27,7 @@ if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
     $roll = $_POST["roll"];
     $message = $_POST["message"];
 
-    $sql = "INSERT INTO `messages` (`student_id`, `student_roll`, `student_message`) VALUES ($student_id, '$roll', '$message')";
+    $sql = "INSERT INTO `messages` (`student_id`, `student_roll`, `student_message`) VALUES ('$student_id', '$roll', '$message')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $sent = true;

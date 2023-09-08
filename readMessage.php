@@ -200,22 +200,29 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
     <div class="container text-center mt-3">
         <div class="row">
             <div class="col">
-                <h3>Sender</h3>
+                <h3><u>Send By</u></h3>
             </div>
             <div class="col">
-                <h3>Message</h3>
+                <h3><u>Sender ID</u></h3>
             </div>
             <div class="col">
-                <h3>Sent At</h3>
+                <h3><u>Message</u></h3>
+            </div>
+            <div class="col">
+                <h3><u>Sent At</u></h3>
             </div>
         </div>
 
         <?php
         while ($row = mysqli_fetch_assoc($result)) {
-            echo '  <div class="row mt-2">
+            if ($row["student_id"]) {
+                echo '  <div class="row mt-2">
                             <div class="col">
-                                ' . $row["student_roll"] . '
-                                </div>
+                                ' . 'Student' . '
+                            </div>
+                            <div class="col">
+                                ' . $row['student_id'] . '
+                            </div>
                             <div class="col">
                                 ' . $row["student_message"] . '
                             </div>
@@ -223,6 +230,22 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                                 ' . date("d/m/Y - h:i:s", strtotime($row["message_time"])) . '
                             </div>
                         </div>';
+            } else {
+                echo '  <div class="row mt-2">
+                            <div class="col">
+                                ' . 'Teacher' . '
+                            </div>
+                            <div class="col">
+                                ' . $row['teacher_id'] . '
+                            </div>
+                            <div class="col">
+                                ' . $row["teacher_message"] . '
+                            </div>
+                            <div class="col">
+                                ' . date("d/m/Y - h:i:s", strtotime($row["message_time"])) . '
+                            </div>
+                        </div>';
+            }
         }
         ?>
 
@@ -241,7 +264,7 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
-        <?php
+    <?php
     if ($accountCreated) {
         echo '  <script>
                     alert("Your Account Is Created Successfully!")
