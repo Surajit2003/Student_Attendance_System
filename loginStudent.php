@@ -11,7 +11,10 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
     $num = mysqli_num_rows($result);
     if ($num == 1) {
         $login = true;
-        header('location: student_home.php?login=' . $login);
+        session_start();
+        $_SESSION["student_email"] = $email;
+        $_SESSION["student_loggedin"] = true;
+        header('location: student_home.php');
     } else {
         $failed = true;
     }

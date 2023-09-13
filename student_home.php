@@ -1,4 +1,16 @@
 <?php
+session_start();
+include('partitions/_dbconnect.php');
+
+if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == true) {
+    $student_email = $_SESSION["student_email"];
+    $getStudentData = "SELECT * FROM `student_profile` WHERE `student_email` ='$student_email'";
+    $result = mysqli_query($conn, $getStudentData);
+    $student = mysqli_fetch_assoc($result);
+    $_SESSION["student_name"] = $student['student_name'];
+}
+// $_SESSION["student_name"] = $student['user'];
+
 //UPDATE `student_attendance` SET `september` = '1' WHERE `student_attendance`.`student_id` = 2115230110;
 
 // SELECT * FROM `student_attendance` WHERE student_id='2115230110';
@@ -50,7 +62,16 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
         <div class="container__rightMain">
             <div class="welcome-heading">
                 <span class="welcome-text">
-                    Welcome <i>'Swagata'</i>
+                    Welcome <i>'
+                        <?php
+                            if(isset($_SESSION["student_name"])){
+                                echo $_SESSION["student_name"];
+                            }
+                            else{
+                                echo "[Student Name]";
+                            }
+                        ?>'
+                    </i>
                 </span>
                 <a href="logout.php" class="logout" id="logout">
                     <span class="material-symbols-outlined">
@@ -93,7 +114,7 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
     if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
         echo '<script>
         alert("Name : ' . $student_name . '\nRoll : ' . $student_roll . '\nAttendance Count : ' . $_POST["student_attendance"] . '");
-    </script>';        
+    </script>';
     }
     ?>
 
