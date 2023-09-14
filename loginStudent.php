@@ -60,7 +60,7 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
         </div>
         <div class="info-text login">
             <h2 class="animation" style="--i:0; --j:20;">Welcome Back!</h2>
-            <p class="animation" style="--i:1; --j:21;">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+            <p class="animation" style="--i:1; --j:21;">Enter your correct email and password to login as a Student.</p>
         </div>
 
         <!-- this is register part -->
@@ -91,7 +91,7 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
         </div>
         <div class="info-text register">
             <h2 class="animation" style="--i:17; --j:0;">Welcome!</h2>
-            <p class="animation" style="--i:18; --j:1;">Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+            <p class="animation" style="--i:18; --j:1;">You can safely create your account as Student.</p>
         </div>
     </div>
 
