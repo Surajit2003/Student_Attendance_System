@@ -61,12 +61,29 @@
 
     <div class="container mt-4">
         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Well done!</h4>
-            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit
-                longer
-                so that you can see how spacing within an alert works with this kind of content.</p>
+            <h4 class="alert-heading">Hello User!</h4>
+            <p>Thanks for using our website. We appriciate your presence. If you encounter any technical issue please
+                submit
+                a query using <a href="contactUs.php">contact us</a> link.
+            </p>
             <hr>
-            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+            <p class="mb-0">To ensure best user experience and secure environment we restricted unauthorized users from
+                getting access of home page. You will be automatically redirected to home page once you successfully log
+                in.</p>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h3 class="text-center">Register if you haven't yet...</h3>
+        <div class="container-fluid colunn text-center mt-4">
+            <!-- Create account modal opener button -->
+            <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#studentProfile">
+                Create Student Profile
+            </button>
+            <!-- Create account modal opener button -->
+            <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#teacherProfile">
+                Create Teacher Profile
+            </button>
         </div>
     </div>
 

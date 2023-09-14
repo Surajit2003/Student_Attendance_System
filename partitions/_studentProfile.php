@@ -8,7 +8,7 @@
                 </div>
                 <div class="modal-body">
                     <!-- create account form -->
-                    <form method="post" id="account_create">
+                    <form action="contactUs.php" method="post" id="account_create">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student ID</label>
                             <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"

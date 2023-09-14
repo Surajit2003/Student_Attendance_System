@@ -7,17 +7,32 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
     $student_email = $_SESSION["student_email"];
     $getStudentData = "SELECT * FROM `student_profile` WHERE `student_email` ='$student_email'";
     $result = mysqli_query($conn, $getStudentData);
-    $student = mysqli_fetch_assoc($result);
-    $_SESSION["student_name"] = $student['student_name'];
+
+    // checking if student has created a profile or not
+    $numRows = mysqli_num_rows($result);
+    if($numRows == 1){
+        $student = mysqli_fetch_assoc($result);
+        $_SESSION["student_name"] = $student['student_name'];
+    }
+    else{
+        header("Location: index.php?createStudentProfile=true");
+    }
 }
 // checking if a teacher has logged in
 elseif (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] == true) {
     $teacher_email = $_SESSION["teacher_email"];
     $getTeacherData = "SELECT * FROM `teacher_profile` WHERE `teacher_email`='$teacher_email'";
     $result = mysqli_query($conn, $getTeacherData);
-    $teacher = mysqli_fetch_assoc($result);
-    $_SESSION["teacher_name"] = $teacher['teacher_name'];
-    $teacher_name = $_SESSION["teacher_name"];
+
+    // checking if student has created a profile or not
+    $numRows = mysqli_num_rows($result);
+    if($numRows == 1){
+        $teacher = mysqli_fetch_assoc($result);
+        $_SESSION["teacher_name"] = $teacher['teacher_name'];
+    }
+    else{
+        header("Location: index.php?createTeacherProfile=true");
+    }
 }
 // if no one has logged in then don't allow anyone to enter the student home page
 else {
