@@ -2,6 +2,7 @@
 session_start();
 include('partitions/_dbconnect.php');
 
+// checking if a student has logged in
 if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == true) {
     $student_email = $_SESSION["student_email"];
     $getStudentData = "SELECT * FROM `student_profile` WHERE `student_email` ='$student_email'";
@@ -9,10 +10,16 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
     $student = mysqli_fetch_assoc($result);
     $_SESSION["student_name"] = $student['student_name'];
 }
-else{
+// checking if a teacher has logged in
+elseif (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] == true) {
+    $teacher_name = $_SESSION["teacher_name"];
+}
+// if no one has logged in then don't allow anyone to enter the student home page
+else {
     header("Location: index.php");
 }
-// $_SESSION["student_name"] = $student['user'];
+
+
 
 //UPDATE `student_attendance` SET `september` = '1' WHERE `student_attendance`.`student_id` = 2115230110;
 
@@ -67,12 +74,13 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
                 <span class="welcome-text">
                     Welcome <i>'
                         <?php
-                            if(isset($_SESSION["student_name"])){
-                                echo $_SESSION["student_name"];
-                            }
-                            else{
-                                echo "[Student Name]";
-                            }
+                        if (isset($_SESSION["student_name"])) {
+                            echo $_SESSION["student_name"];
+                        } elseif (isset($_SESSION["teacher_name"])) {
+                            echo $_SESSION["teacher_name"];
+                        } else {
+                            echo "[Student/Teacher Name]";
+                        }
                         ?>'
                     </i>
                 </span>

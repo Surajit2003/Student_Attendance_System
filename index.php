@@ -46,14 +46,8 @@
                     data-bs-target="#teacherLogin">
                     Login as Teacher
                 </button>
-                <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal"
-                    data-bs-target="#studentProfile">
-                    Sign Up as Student
-                </button>
-                <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal"
-                    data-bs-target="#teacherProfile">
-                    Sign Up as Teacher
-                </button>
+                <a href="loginStudent.php" class="btn btn-primary mx-2">Sign Up as Student</a>
+                <a href="loginTeacher.php" class="btn btn-primary mx-2">Sign Up as Teacher</a>
             </div>
         </div>
     </nav>
