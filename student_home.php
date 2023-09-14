@@ -12,6 +12,11 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
 }
 // checking if a teacher has logged in
 elseif (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] == true) {
+    $teacher_email = $_SESSION["teacher_email"];
+    $getTeacherData = "SELECT * FROM `teacher_profile` WHERE `teacher_email`='$teacher_email'";
+    $result = mysqli_query($conn, $getTeacherData);
+    $teacher = mysqli_fetch_assoc($result);
+    $_SESSION["teacher_name"] = $teacher['teacher_name'];
     $teacher_name = $_SESSION["teacher_name"];
 }
 // if no one has logged in then don't allow anyone to enter the student home page
