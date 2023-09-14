@@ -32,7 +32,11 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Email</label>
                             <input type="email" name="student_email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Email">
+                                aria-describedby="emailHelp" placeholder="Enter Your Email" <?php
+                                    if(isset($_GET["student_email"])){
+                                        echo "value=".$_GET["student_email"];
+                                    }
+                                ?> readonly>
                         </div>
                         <label class="form-check-label mb-2" for="gender">Select Your Gender</label><br>
                         <div class="form-check form-check-inline">

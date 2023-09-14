@@ -15,11 +15,12 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
         $_SESSION["student_name"] = $student['student_name'];
     }
     else{
-        header("Location: index.php?createStudentProfile=true");
+        unset($_SESSION['student_loggedin']);
+        header("Location: /Minor_Project/Student_Attendance_System/?student_email=$student_email");
     }
 }
 // checking if a teacher has logged in
-elseif (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] == true) {
+else if (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] == true) {
     $teacher_email = $_SESSION["teacher_email"];
     $getTeacherData = "SELECT * FROM `teacher_profile` WHERE `teacher_email`='$teacher_email'";
     $result = mysqli_query($conn, $getTeacherData);
@@ -31,12 +32,13 @@ elseif (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] ==
         $_SESSION["teacher_name"] = $teacher['teacher_name'];
     }
     else{
-        header("Location: index.php?createTeacherProfile=true");
+        unset($_SESSION['teacher_loggedin']);
+        header("Location: /Minor_Project/Student_Attendance_System/?teacher_email=$teacher_email");
     }
 }
 // if no one has logged in then don't allow anyone to enter the student home page
 else {
-    header("Location: index.php");
+    header("Location: /Minor_Project/Student_Attendance_System/");
 }
 
 

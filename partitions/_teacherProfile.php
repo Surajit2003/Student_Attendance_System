@@ -25,9 +25,13 @@
                                 aria-describedby="emailHelp" placeholder="Enter Your Phone">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Teacher Email</label>
+                            <label for="exampleInputEmail1" class="form-label disabled">Teacher Email</label>
                             <input type="email" name="teacher_email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Email">
+                                aria-describedby="emailHelp" placeholder="Enter Your Email" <?php
+                                    if(isset($_GET["teacher_email"])){
+                                        echo "value=". $_GET["teacher_email"];
+                                    }
+                                ?> readonly>
                         </div>
                         <label class="form-check-label mb-2" for="gender">Select Your Gender</label><br>
                         <div class="form-check form-check-inline">

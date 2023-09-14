@@ -4,7 +4,7 @@ session_unset();
 session_destroy();
     echo '<script>
     alert("Logged out successfully");
-    window.location.replace("index.php");
+    window.location.replace("/Minor_Project/Student_Attendance_System/");
 </script>';
 
 // header("Location: student_home.php");
