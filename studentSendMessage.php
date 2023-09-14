@@ -118,7 +118,7 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                 </form>
                 <!-- Create account modal opener button -->
                 <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
+                    data-bs-target="#studentProfile">
                     Create Account
                 </button>
             </div>
