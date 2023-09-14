@@ -9,6 +9,9 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
     $student = mysqli_fetch_assoc($result);
     $_SESSION["student_name"] = $student['student_name'];
 }
+else{
+    header("Location: index.php");
+}
 // $_SESSION["student_name"] = $student['user'];
 
 //UPDATE `student_attendance` SET `september` = '1' WHERE `student_attendance`.`student_id` = 2115230110;

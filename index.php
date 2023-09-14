@@ -30,31 +30,11 @@
                     <li class="nav-item" style="cursor: not-allowed;">
                         <a class="nav-link disabled" aria-disabled="true" href="#">About</a>
                     </li>
+                    <li class="nav-item" style="cursor: not-allowed;">
+                        <a class="nav-link disabled" aria-disabled="true" href="#">Docs</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="contactUs.php">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="studentSendMessage.php">Student Message</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="teacherSendMessage.php">Teacher Message</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Other Options
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="loginStudent.php">Login as Student</a></li>
-                            <li><a class="dropdown-item" href="loginTeacher.php">Login as Teacher</a></li>
-                            <li><a class="dropdown-item" href="registerStudent.php">Sign Up as Student</a></li>
-                            <li><a class="dropdown-item" href="registerTeacher.php">Sign Up as Teacher</a></li>
-                            <li><a class="dropdown-item" href="readMessage.php">Messages</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="setup.php">Environment Set Up</a></li>
-                        </ul>
                     </li>
                 </ul>
                 <!-- Create account modal opener button -->
@@ -79,11 +59,22 @@
     </nav>
 
     <?php
-        require("partitions/_loginStudent.php");
-        require("partitions/_loginTeacher.php");
-        require("partitions/_studentProfile.php");
-        require("partitions/_teacherProfile.php");
+    require("partitions/_loginStudent.php");
+    require("partitions/_loginTeacher.php");
+    require("partitions/_studentProfile.php");
+    require("partitions/_teacherProfile.php");
     ?>
+
+    <div class="container mt-4">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit
+                longer
+                so that you can see how spacing within an alert works with this kind of content.</p>
+            <hr>
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
