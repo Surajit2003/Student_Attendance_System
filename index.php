@@ -79,6 +79,8 @@
     </nav>
 
     <?php
+        require("partitions/_loginStudent.php");
+        require("partitions/_loginTeacher.php");
         require("partitions/_studentProfile.php");
         require("partitions/_teacherProfile.php");
     ?>

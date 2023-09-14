@@ -1,85 +1,32 @@
 <!-- Modal -->
 <div class="modal fade" id="teacherLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create Your Account</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!-- create account form -->
-                    <form method="post" id="account_create">
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student ID</label>
-                            <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your ID">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Name</label>
-                            <input type="text" name="student_name" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Roll</label>
-                            <input type="number" name="student_roll" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Roll">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Phone</label>
-                            <input type="tel" name="student_phone" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Phone">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Email</label>
-                            <input type="email" name="student_email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Email">
-                        </div>
-                        <label class="form-check-label mb-2" for="gender">Select Your Gender</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="M">
-                            <label class="form-check-label" for="male">Male</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="F">
-                            <label class="form-check-label" for="female">Female</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="other" value="O">
-                            <label class="form-check-label" for="other">Other</label>
-                        </div><br>
-                        <label class="form-check-label my-2" for="stream">Select Your Stream</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="bca" value="BCA">
-                            <label class="form-check-label" for="bca">BCA</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="bba" value="BBA">
-                            <label class="form-check-label" for="bba">BBA</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="mca" value="MCA">
-                            <label class="form-check-label" for="mca">MCA</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="mba" value="MBA">
-                            <label class="form-check-label" for="mba">MBA</label>
-                        </div>
-                        <select class="form-select mt-3" name="student_semester" aria-label="Default select example">
-                            <option selected>Select Your Semester..</option>
-                            <option value="1">First</option>
-                            <option value="2">Second</option>
-                            <option value="3">Third</option>
-                            <option value="4">Fourth</option>
-                            <option value="5">Fifth</option>
-                            <option value="6">Sixth</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" form="account_create" name="createAccount" value="createAccount"
-                        class="btn btn-primary">Create Account</button>
-                </div>
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create Your Account</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- create account form -->
+                <form action="loginTeacher.php" method="post" id="loginTeacher">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Your Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter Your Password" required>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" form="loginTeacher" name="teacherLogin" value="teacherLogin"
+                    class="btn btn-primary">Create Account</button>
             </div>
         </div>
     </div>
+</div>

@@ -3,7 +3,7 @@
 $login = false;
 $failed = false;
 include('partitions/_dbconnect.php');
-if (isset($_POST["login"]) && $_POST["login"] == "login") {
+if (isset($_POST["teacherLogin"]) && $_POST["teacherLogin"] == "teacherLogin") {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $sql = "SELECT * FROM `teacher_registration` WHERE `teacher_email`='$email' AND `teacher_password`='$password'";
@@ -47,7 +47,7 @@ if (isset($_POST["login"]) && $_POST["login"] == "login") {
                     <label for="password">Password</label>
                     <i class='bx bxs-lock-alt'></i>
                 </div>
-                <button type="submit" name="login" value="login" class="btn animation"
+                <button type="submit" name="teacherLogin" value="teacherLogin" class="btn animation"
                     style="--i:3; --j:24;">Login</button>
                 <div class="logreg-link animation" style="--i:4; --j:25;">
                     <p>Don't have an account? <a href="#" class="register-link" title="Click Here to Sign Up">Sign
