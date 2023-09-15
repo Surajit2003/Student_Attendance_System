@@ -61,7 +61,7 @@
 
     <div class="container mt-4">
         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading text-center">Hello User!</h4>
+            <h4 class="alert-heading">Hello User!</h4>
             <p>Thanks for using our website. We appriciate your presence. If you encounter any technical issue please
                 submit
                 a query using <a href="contactUs.php">contact us</a> link.
