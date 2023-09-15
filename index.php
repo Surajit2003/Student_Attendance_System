@@ -61,7 +61,7 @@
 
     <div class="container mt-4">
         <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Hello User!</h4>
+            <h4 class="alert-heading text-center">Hello User!</h4>
             <p>Thanks for using our website. We appriciate your presence. If you encounter any technical issue please
                 submit
                 a query using <a href="contactUs.php">contact us</a> link.
@@ -72,20 +72,23 @@
                 in.</p>
         </div>
     </div>
-
-    <div class="container mt-4">
-        <h3 class="text-center">Register if you haven't yet...</h3>
-        <div class="container-fluid colunn text-center mt-4">
-            <!-- Create account modal opener button -->
-            <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#studentProfile">
-                Create Student Profile
-            </button>
-            <!-- Create account modal opener button -->
-            <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#teacherProfile">
-                Create Teacher Profile
-            </button>
-        </div>
-    </div>
+    <?php
+        if(isset($_GET["student_email"]) || isset($_GET["teacher_email"])){
+            echo '<div class="container mt-4">
+            <h3 class="text-center">Register if you haven\'t yet...</h3>
+            <div class="container-fluid colunn text-center mt-4">
+                <!-- Create account modal opener button -->
+                <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#studentProfile">
+                    Create Student Profile
+                </button>
+                <!-- Create account modal opener button -->
+                <button type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#teacherProfile">
+                    Create Teacher Profile
+                </button>
+            </div>
+        </div>';
+        }
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
