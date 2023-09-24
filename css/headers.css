@@ -1,10 +1,19 @@
+:root {
+    --clr-nav: #141824;
+    --clr-border: #373e53;
+    --clr-heading-mark: #6e7891;
+    --clr-hover-color: #31374a;
+    --clr-btn-text-logo: #9fa6bc;
+    --clr-bgcolor: #0f111a;
+}
+
 /* header styling */
 
 header {
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #141824;
+    background-color: var(--clr-nav);
     color: white;
     width: 100%;
 }
@@ -13,7 +22,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #373e53;
+    border-bottom: 1px solid var(--clr-border);
 }
 
 .header__navbar .nav__left {
@@ -42,7 +51,7 @@ header {
     border-radius: 3rem;
     width: 25rem;
     margin: 16px;
-    border: 1px solid #373e53;
+    border: 1px solid var(--clr-border);
     outline: none;
     background: transparent;
     font-size: .8rem;

@@ -80,15 +80,14 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
     <!-- including header for our html -->
     <?php require("partitions/_headers.php") ?>
-    <div class="container contents">
+    <div class="container">
         <!-- including left side navigation bar for our html -->
         <?php require("partitions/_leftNavOptions.php") ?>
         <div class="container__rightMain">
@@ -101,7 +100,7 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
                         } elseif (isset($_SESSION["teacher_name"])) {
                             echo $_SESSION["teacher_name"];
                         } else {
-                            echo "[Student/Teacher Name]";
+                            echo "[Student Name]";
                         }
                         ?>'
                     </i>

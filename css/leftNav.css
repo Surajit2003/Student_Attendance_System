@@ -4,7 +4,10 @@
     --clr-heading-mark: #6e7891;
     --clr-hover-color: #31374a;
     --clr-btn-text-logo: #9fa6bc;
+    --clr-bgcolor: #0f111a;
 }
+
+@import url("css/_colors.css");
 
 .container .container__leftNav {
     background-color: var(--clr-nav);
