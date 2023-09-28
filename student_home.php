@@ -10,11 +10,10 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
 
     // checking if student has created a profile or not
     $numRows = mysqli_num_rows($result);
-    if($numRows == 1){
+    if ($numRows == 1) {
         $student = mysqli_fetch_assoc($result);
         $_SESSION["student_name"] = $student['student_name'];
-    }
-    else{
+    } else {
         unset($_SESSION['student_loggedin']);
         header("Location: /Minor_Project/Student_Attendance_System/?student_email=$student_email");
     }
@@ -27,11 +26,10 @@ else if (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] =
 
     // checking if student has created a profile or not
     $numRows = mysqli_num_rows($result);
-    if($numRows == 1){
+    if ($numRows == 1) {
         $teacher = mysqli_fetch_assoc($result);
         $_SESSION["teacher_name"] = $teacher['teacher_name'];
-    }
-    else{
+    } else {
         unset($_SESSION['teacher_loggedin']);
         header("Location: /Minor_Project/Student_Attendance_System/?teacher_email=$teacher_email");
     }
@@ -62,10 +60,18 @@ $attendance = $studentData["$month"];
 
 // post request handle
 if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
-    $attendanceUpdate = (int) $_POST["student_attendance"];
-    $updateQuery = "UPDATE `student_attendance` SET `$month` = $attendanceUpdate WHERE `student_id` = '$student_id'";
-    $result = mysqli_query($conn, $updateQuery);
-    header("refresh: 1; url=student_home.php");
+
+    // checking if correct qr code is scanned or not
+    if($_POST["secret_key"]){   // corrently it can register any qr code scan
+        $student_id = (int) $_POST["student_id"];
+        $attendanceUpdate = (int) $_POST["student_attendance"];
+        $updateQuery = "UPDATE `student_attendance` SET `$month` = $attendanceUpdate WHERE `student_id` = '$student_id'";
+        $result = mysqli_query($conn, $updateQuery);
+        header("refresh: 1; url=student_home.php");
+    }
+    else{
+        header("Location: ScannerSystem.php");
+    }
 }
 
 # TODO: add grading system and remarks calculation
@@ -80,7 +86,8 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="css/index.css">
 </head>
 
@@ -114,15 +121,16 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
             </div>
             <section class="nofifications">
                 <span class="warnings">0 Warnings</span>
-                <form method="post" id="attendance">
+                <!-- <form method="post" id="attendance"> -->
                     <?php
-                    echo '<input type="hidden" name="student_attendance" value="' . (int) $attendance + 1 . '">'
+                    // echo '<input type="hidden" name="student_attendance" value="' . (int) $attendance + 1 . '">'
                         ?>
-                </form>
-                <button type="submit" name="scan" value="scan" form="attendance" class="scanner-button">
+                <!-- </form> -->
+                <!-- <button type="submit" name="scan" value="scan" form="attendance" class="scanner-button"> -->
+                <a href="ScannerSystem.php" class="scanner-button">
                     <span class="material-symbols-outlined">qr_code_scanner</span>
                     <span class="scanner-text">Scanner</span>
-                </button>
+                </a>
                 <span class="unread-messages">No unread messages</span>
             </section>
             <section class="charts" id="progress">
