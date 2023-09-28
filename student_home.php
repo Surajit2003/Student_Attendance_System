@@ -62,7 +62,7 @@ $attendance = $studentData["$month"];
 if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
 
     // checking if correct qr code is scanned or not
-    if($_POST["secret_key"]){   // corrently it can register any qr code scan
+    if($_POST["secret_key"] == '$2y$10$b1PT6x2LheA3sS7UJjOUEeU1vHp/r1RRFdo/6PqM1ZJooCxHF4lvK'){   // corrently it can register any qr code scan
         $student_id = (int) $_POST["student_id"];
         $attendanceUpdate = (int) $_POST["student_attendance"];
         $updateQuery = "UPDATE `student_attendance` SET `$month` = $attendanceUpdate WHERE `student_id` = '$student_id'";
