@@ -45,6 +45,8 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $accountCreated = true;
+        $sql = "INSERT INTO `student_attendance` (`student_id`, `student_name`, `student_roll`, `january`, `february`, `march`, `april`, `may`, `june`, `july`, `august`, `september`, `october`, `november`, `december`, `remarks`, `grade`) VALUES ('$student_id', '$student_name', '$student_roll', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Very Bad', 'C');";
+        $result = mysqli_query($conn, $sql);
     }
 }
 ?>

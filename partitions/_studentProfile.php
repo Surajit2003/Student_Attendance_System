@@ -69,7 +69,7 @@
                             <label class="form-check-label" for="mba">MBA</label>
                         </div>
                         <select class="form-select mt-3" name="student_semester" aria-label="Default select example" required>
-                            <option selected>Select Your Semester..</option>
+                            <option>Select Your Semester..</option>
                             <option value="1">First</option>
                             <option value="2">Second</option>
                             <option value="3">Third</option>
