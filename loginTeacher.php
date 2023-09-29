@@ -14,7 +14,7 @@ if (isset($_POST["teacherLogin"]) && $_POST["teacherLogin"] == "teacherLogin") {
         session_start();
         $_SESSION["teacher_loggedin"] = true;
         $_SESSION["teacher_email"] = $email;
-        header('location: student_home.php');
+        header('location: teacher_home.php');
     } else {
         $failed = true;
     }

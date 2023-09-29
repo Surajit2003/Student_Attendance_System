@@ -1,3 +1,29 @@
+<?php
+session_start();
+include('partitions/_dbconnect.php');
+
+// checking if a teacher has logged in
+if (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] == true) {
+    $teacher_email = $_SESSION["teacher_email"];
+    $getTeacherData = "SELECT * FROM `teacher_profile` WHERE `teacher_email`='$teacher_email'";
+    $result = mysqli_query($conn, $getTeacherData);
+
+    // checking if teacher has created a profile or not
+    $numRows = mysqli_num_rows($result);
+    if ($numRows == 1) {
+        $teacher = mysqli_fetch_assoc($result);
+        $_SESSION["teacher_id"] = $teacher['teacher_id'];
+        $_SESSION["teacher_name"] = $teacher['teacher_name'];
+    } else {
+        unset($_SESSION['teacher_loggedin']);
+        header("Location: /Minor_Project/Student_Attendance_System/?teacher_email=$teacher_email");
+    }
+}
+// if no one has logged in then don't allow anyone to enter the student home page
+else {
+    header("Location: /Minor_Project/Student_Attendance_System/");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,9 +45,7 @@
                 <span class="welcome-text">
                     Welcome <i>'
                         <?php
-                        if (isset($_SESSION["student_name"])) {
-                            echo $_SESSION["student_name"];
-                        } elseif (isset($_SESSION["teacher_name"])) {
+                        if (isset($_SESSION["teacher_name"])) {
                             echo $_SESSION["teacher_name"];
                         } else {
                             echo "[Teacher Name]";
