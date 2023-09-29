@@ -48,6 +48,7 @@
                 </button>
                 <a href="registerStudent.php" class="btn btn-primary mx-2">Sign Up as Student</a>
                 <a href="registerTeacher.php" class="btn btn-primary mx-2">Sign Up as Teacher</a>
+                <a href="setup.php" class="btn btn-primary mx-2">Set Up</a>
             </div>
         </div>
     </nav>
