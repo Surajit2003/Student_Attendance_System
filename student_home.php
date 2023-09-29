@@ -18,22 +18,6 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
         header("Location: /Minor_Project/Student_Attendance_System/?student_email=$student_email");
     }
 }
-// checking if a teacher has logged in
-else if (isset($_SESSION['teacher_loggedin']) && $_SESSION['teacher_loggedin'] == true) {
-    $teacher_email = $_SESSION["teacher_email"];
-    $getTeacherData = "SELECT * FROM `teacher_profile` WHERE `teacher_email`='$teacher_email'";
-    $result = mysqli_query($conn, $getTeacherData);
-
-    // checking if student has created a profile or not
-    $numRows = mysqli_num_rows($result);
-    if ($numRows == 1) {
-        $teacher = mysqli_fetch_assoc($result);
-        $_SESSION["teacher_name"] = $teacher['teacher_name'];
-    } else {
-        unset($_SESSION['teacher_loggedin']);
-        header("Location: /Minor_Project/Student_Attendance_System/?teacher_email=$teacher_email");
-    }
-}
 // if no one has logged in then don't allow anyone to enter the student home page
 else {
     header("Location: /Minor_Project/Student_Attendance_System/");
@@ -49,13 +33,16 @@ include("partitions/_dbconnect.php");
 $month = strtolower(date("F")); # this line of code gets current month
 // $month = "april";   # uncomment this code for test purposes only.
 
-$student_id = 2115230110;
-$student_name = 'Swagata Mukherjee';
-$student_roll = '15201221066';
+// $student_id = 2115230110;
+// $student_name = 'Swagata Mukherjee';
+// $student_roll = '15201221066';
 
 $getStudent = "SELECT * FROM `student_attendance` WHERE student_id='$student_id'";
 $result = mysqli_query($conn, $getStudent);
 $studentData = mysqli_fetch_assoc($result);
+$student_id = $studentData['student_id'];
+$student_name = $studentData['student_name'];
+$student_roll = $studentData['student_roll'];
 $attendance = $studentData["$month"];
 
 // post request handle
