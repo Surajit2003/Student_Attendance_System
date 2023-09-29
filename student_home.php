@@ -12,6 +12,7 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
     $numRows = mysqli_num_rows($result);
     if ($numRows == 1) {
         $student = mysqli_fetch_assoc($result);
+        $_SESSION["student_id"] = $student['student_id'];
         $_SESSION["student_name"] = $student['student_name'];
     } else {
         unset($_SESSION['student_loggedin']);
@@ -33,7 +34,7 @@ include("partitions/_dbconnect.php");
 $month = strtolower(date("F")); # this line of code gets current month
 // $month = "april";   # uncomment this code for test purposes only.
 
-// $student_id = 2115230110;
+$student_id = $_SESSION["student_id"];
 // $student_name = 'Swagata Mukherjee';
 // $student_roll = '15201221066';
 
