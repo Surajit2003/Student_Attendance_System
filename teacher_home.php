@@ -49,9 +49,9 @@
                 </button>
                 <button type="button" class="essential-button">
                     <span class="material-symbols-outlined">
-                        edit_note
+                        add_task
                     </span>
-                    <span class="essential-btn-text">Edit Database</span>
+                    <span class="essential-btn-text">Set Goal</span>
                 </button>
                 <button type="button" class="essential-button">
                     <span class="material-symbols-outlined">
