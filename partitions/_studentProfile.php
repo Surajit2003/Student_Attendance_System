@@ -12,22 +12,22 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student ID</label>
                             <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your ID">
+                                aria-describedby="emailHelp" placeholder="Enter Your ID" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Name</label>
                             <input type="text" name="student_name" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Name">
+                                aria-describedby="emailHelp" placeholder="Enter Your Name" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Roll</label>
                             <input type="number" name="student_roll" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Roll">
+                                aria-describedby="emailHelp" placeholder="Enter Your Roll" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Phone</label>
                             <input type="tel" name="student_phone" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Phone">
+                                aria-describedby="emailHelp" placeholder="Enter Your Phone" required>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Email</label>
@@ -36,39 +36,39 @@
                                     if(isset($_GET["student_email"])){
                                         echo "value=".$_GET["student_email"];
                                     }
-                                ?> readonly>
+                                ?> readonly required>
                         </div>
                         <label class="form-check-label mb-2" for="gender">Select Your Gender</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="male" value="M">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="M" required>
                             <label class="form-check-label" for="male">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="female" value="F">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="F" required>
                             <label class="form-check-label" for="female">Female</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="other" value="O">
+                            <input class="form-check-input" type="radio" name="gender" id="other" value="O" required>
                             <label class="form-check-label" for="other">Other</label>
                         </div><br>
                         <label class="form-check-label my-2" for="stream">Select Your Stream</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="bca" value="BCA">
+                            <input class="form-check-input" type="radio" name="stream" id="bca" value="BCA" required>
                             <label class="form-check-label" for="bca">BCA</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="bba" value="BBA">
+                            <input class="form-check-input" type="radio" name="stream" id="bba" value="BBA" required>
                             <label class="form-check-label" for="bba">BBA</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="mca" value="MCA">
+                            <input class="form-check-input" type="radio" name="stream" id="mca" value="MCA" required>
                             <label class="form-check-label" for="mca">MCA</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stream" id="mba" value="MBA">
+                            <input class="form-check-input" type="radio" name="stream" id="mba" value="MBA" required>
                             <label class="form-check-label" for="mba">MBA</label>
                         </div>
-                        <select class="form-select mt-3" name="student_semester" aria-label="Default select example">
+                        <select class="form-select mt-3" name="student_semester" aria-label="Default select example" required>
                             <option selected>Select Your Semester..</option>
                             <option value="1">First</option>
                             <option value="2">Second</option>
