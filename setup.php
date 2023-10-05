@@ -89,7 +89,7 @@ if ($result) {
 }
 
 // table 7 - student attendance
-$sql = 'CREATE TABLE IF NOT EXISTS `student_attendance` (`student_id` INT(10) NOT NULL , `student_name` VARCHAR(50) NOT NULL , `student_roll` VARCHAR(12) NOT NULL , `january` INT(2) NULL DEFAULT NULL , `february` INT(2) NULL DEFAULT NULL , `march` INT(2) NULL DEFAULT NULL , `april` INT(2) NULL DEFAULT NULL , `may` INT(2) NULL DEFAULT NULL , `june` INT(2) NULL DEFAULT NULL , `july` INT(2) NULL DEFAULT NULL , `august` INT(2) NULL DEFAULT NULL , `september` INT(2) NULL DEFAULT NULL , `october` INT(2) NULL DEFAULT NULL , `november` INT(2) NULL DEFAULT NULL , `december` INT(2) NULL DEFAULT NULL , `remarks` VARCHAR(10) NOT NULL , `grade` CHAR(1) NOT NULL , PRIMARY KEY (`student_id`), UNIQUE `student_attendance_roll_un` (`student_roll`)) ENGINE = InnoDB';
+$sql = 'CREATE TABLE IF NOT EXISTS `student_attendance` (`student_id` VARCHAR(20) NOT NULL , `student_name` VARCHAR(50) NOT NULL , `january` INT(2) NULL DEFAULT NULL , `february` INT(2) NULL DEFAULT NULL , `march` INT(2) NULL DEFAULT NULL , `april` INT(2) NULL DEFAULT NULL , `may` INT(2) NULL DEFAULT NULL , `june` INT(2) NULL DEFAULT NULL , `july` INT(2) NULL DEFAULT NULL , `august` INT(2) NULL DEFAULT NULL , `september` INT(2) NULL DEFAULT NULL , `october` INT(2) NULL DEFAULT NULL , `november` INT(2) NULL DEFAULT NULL , `december` INT(2) NULL DEFAULT NULL , `remarks` VARCHAR(10) NOT NULL , `grade` CHAR(1) NOT NULL , PRIMARY KEY (`student_id`), UNIQUE `student_attendance_roll_un` (`student_roll`)) ENGINE = InnoDB';
 $result = mysqli_query($conn, $sql);
 if ($result) {
     $tablecreated = true;
