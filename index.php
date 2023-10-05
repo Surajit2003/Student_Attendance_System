@@ -15,13 +15,16 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $accountCreated = true;
-        $sql = "INSERT INTO `student_attendance` (`student_id`,`student_name`, `student_roll`, `january`, `february`, `march`, `april`, `may`, `june`, `july`, `august`, `september`, `october`, `november`, `december`, `remarks`, `grade`) VALUES ('$student_id', '$student_name', '$student_roll', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Very Bad', 'C');";
-        $result = mysqli_query($conn, $sql);
+       
+
         // Getting student data
+
         $sql="Select `sno`, `student_stream` from `student_profile` where `student_email`= '$student_email'";
         $result = mysqli_query($conn, $sql);
         $student=mysqli_fetch_assoc($result);
+
         //Updating student id
+
         if($student["sno"]< 10)
         {
             $sno="00".$student["sno"];
@@ -35,6 +38,11 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
         $sid="S".$student["student_stream"].$sno;
         $sql="UPDATE `student_profile` SET `student_id` = '$sid' WHERE `student_email` ='$student_email'";
         $result = mysqli_query($conn, $sql);
+        if($result)
+        {
+            $sql = "INSERT INTO `student_attendance` (`student_id`,`student_name`, `student_roll`, `january`, `february`, `march`, `april`, `may`, `june`, `july`, `august`, `september`, `october`, `november`, `december`, `remarks`, `grade`) VALUES ('$student_id', '$student_name', '$student_roll', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Very Bad', 'C');";
+            $result = mysqli_query($conn, $sql);
+        }
     }
 }
 ?>
