@@ -10,20 +10,11 @@
                     <!-- create account form -->
                     <form action="index.php" method="post" id="account_create">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student ID</label>
-                            <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your ID" required>
-                        </div>
-                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Name</label>
                             <input type="text" name="student_name" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="Enter Your Name" required>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Student Roll</label>
-                            <input type="number" name="student_roll" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Roll" required>
-                        </div>
+                
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Phone</label>
                             <input type="tel" name="student_phone" class="form-control" id="exampleInputEmail1"
@@ -32,7 +23,8 @@
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Student Email</label>
                             <input type="email" name="student_email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="Enter Your Email" <?php
+                                aria-describedby="emailHelp" placeholder="Enter Your Email" 
+                                <?php
                                     if(isset($_GET["student_email"])){
                                         echo "value=".$_GET["student_email"];
                                     }

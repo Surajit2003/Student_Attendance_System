@@ -1,26 +1,42 @@
 <?php
 
+require "partitions/_dbconnect.php";
 // if account is created then
+
 if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount") {
-    $student_id = $_POST['student_id'];
     $student_name = $_POST['student_name'];
-    $student_roll = $_POST['student_roll'];
     $student_phone = $_POST['student_phone'];
     $student_email = $_POST['student_email'];
     $gender = $_POST['gender'];
     $stream = $_POST['stream'];
     $student_semester = $_POST['student_semester'];
 
-    $sql = "INSERT INTO `student_profile` (`student_id`, `student_name`, `student_roll`, `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`) VALUES ('$student_id', '$student_name', '$student_roll', '$student_phone', '$student_email', '$gender', '$stream', '$student_semester');";
+    $sql = "INSERT INTO `student_profile` ( `student_name`,  `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`) VALUES ( '$student_name', '$student_phone', '$student_email', '$gender', '$stream', '$student_semester')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $accountCreated = true;
-        $sql = "INSERT INTO `student_attendance` (`student_id`, `student_name`, `student_roll`, `january`, `february`, `march`, `april`, `may`, `june`, `july`, `august`, `september`, `october`, `november`, `december`, `remarks`, `grade`) VALUES ('$student_id', '$student_name', '$student_roll', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Very Bad', 'C');";
+        $sql = "INSERT INTO `student_attendance` (`student_id`,`student_name`, `student_roll`, `january`, `february`, `march`, `april`, `may`, `june`, `july`, `august`, `september`, `october`, `november`, `december`, `remarks`, `grade`) VALUES ('$student_id', '$student_name', '$student_roll', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Very Bad', 'C');";
         $result = mysqli_query($conn, $sql);
-        
+        // Getting student data
+        $sql="Select `sno`, `student_stream` from `student_profile` where `student_email`= '$student_email'";
+        $result = mysqli_query($conn, $sql);
+        $student=mysqli_fetch_assoc($result);
+        //Updating student id
+        if($student["sno"]< 10)
+        {
+            $sno="00".$student["sno"];
+        }
+        elseif ($student["sno"]>=10 && $student["sno"]<100) {
+            $sno="0".$student["sno"]; 
+        }
+        else {
+            $sno= $student["sno"];
+        }
+        $sid="S".$student["student_stream"].$sno;
+        $sql="UPDATE `student_profile` SET `student_id` = '$sid' WHERE `student_email` ='$student_email'";
+        $result = mysqli_query($conn, $sql);
     }
 }
-
 ?>
 
 <!doctype html>
