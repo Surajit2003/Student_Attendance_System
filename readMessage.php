@@ -19,23 +19,6 @@ if (!$conn) {
 $sql = "SELECT * FROM `messages`";
 $result = mysqli_query($conn, $sql);
 
-// if account is created then
-if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount") {
-    $student_id = $_POST['student_id'];
-    $student_name = $_POST['student_name'];
-    $student_roll = $_POST['student_roll'];
-    $student_phone = $_POST['student_phone'];
-    $student_email = $_POST['student_email'];
-    $gender = $_POST['gender'];
-    $stream = $_POST['stream'];
-    $student_semester = $_POST['student_semester'];
-
-    $createStudentAcc = "INSERT INTO `student_profile` (`student_id`, `student_name`, `student_roll`, `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`) VALUES ('$student_id', '$student_name', '$student_roll', '$student_phone', '$student_email', '$gender', '$stream', '$student_semester');";
-    $result = mysqli_query($conn, $createStudentAcc);
-    if ($result) {
-        $accountCreated = true;
-    }
-}
 
 ?>
 
@@ -181,13 +164,6 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
-    <?php
-    if ($accountCreated) {
-        echo '  <script>
-                    alert("Your Account Is Created Successfully!")
-                </script>';
-    }
-    ?>
 </body>
 
 </html>

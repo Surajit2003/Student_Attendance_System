@@ -24,33 +24,15 @@ $accountCreated = false;
 // if message is sent then
 if (isset($_POST['sent']) && $_POST['sent'] == "sent") {
     $student_id = $_POST["student_id"];
-    $roll = $_POST["roll"];
     $message = $_POST["message"];
 
-    $sql = "INSERT INTO `messages` (`student_id`, `student_roll`, `student_message`) VALUES ('$student_id', '$roll', '$message')";
+    $sql = "INSERT INTO `messages` (`student_id`,  `student_message`) VALUES ('$student_id', '$message')";
     $result = mysqli_query($conn, $sql);
     if ($result) {
         $sent = true;
     }
 }
 
-// if account is created then
-if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount") {
-    $student_id = $_POST['student_id'];
-    $student_name = $_POST['student_name'];
-    $student_roll = $_POST['student_roll'];
-    $student_phone = $_POST['student_phone'];
-    $student_email = $_POST['student_email'];
-    $gender = $_POST['gender'];
-    $stream = $_POST['stream'];
-    $student_semester = $_POST['student_semester'];
-
-    $sql = "INSERT INTO `student_profile` (`student_id`, `student_name`, `student_roll`, `student_phone`, `student_email`, `student_gender`, `student_stream`, `student_semester`) VALUES ('$student_id', '$student_name', '$student_roll', '$student_phone', '$student_email', '$gender', '$stream', '$student_semester');";
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-        $accountCreated = true;
-    }
-}
 ?>
 
 <!doctype html>
@@ -134,11 +116,6 @@ if (isset($_POST["createAccount"]) && $_POST["createAccount"] == "createAccount"
                 <label for="userName" class="form-label">Your ID</label>
                 <input type="number" name="student_id" class="form-control" id="exampleInputEmail1"
                     placeholder="Enter Your ID Here...." aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="userName" class="form-label">Your Roll</label>
-                <input type="number" name="roll" class="form-control" id="exampleInputEmail1"
-                    placeholder="Enter Your Roll Here...." aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="floatingTextarea" class="form-label">Message</label>

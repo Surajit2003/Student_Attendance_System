@@ -15,7 +15,6 @@ if (isset($_SESSION['student_loggedin']) && $_SESSION['student_loggedin'] == tru
         // setting up session variables
         $_SESSION["student_id"] = $student['student_id'];
         $_SESSION["student_name"] = $student['student_name'];
-        $_SESSION["student_roll"] = $student['student_roll'];
 
         // getting student's attendance count
         $getStudent = "SELECT * FROM `student_attendance` WHERE student_id='" . $_SESSION["student_id"] . "'";
@@ -88,7 +87,6 @@ else {
                         <tr>
                             <td>STUDENT ID</td>
                             <td>STUDENT Name</td>
-                            <td>STUDENT Roll</td>
                             <td>STUDENT ATTENDANCE COUNT</td>
                         </tr>
                     </thead>
@@ -107,14 +105,6 @@ else {
                                 <?php
                                 if (isset($_SESSION['student_name'])) {
                                     echo $_SESSION['student_name'];
-                                }
-                                ?>
-                            </td>
-                            <td>
-                                <!-- Student Roll -->
-                                <?php
-                                if (isset($_SESSION['student_roll'])) {
-                                    echo $_SESSION['student_roll'];
                                 }
                                 ?>
                             </td>

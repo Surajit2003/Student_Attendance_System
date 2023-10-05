@@ -43,7 +43,6 @@ $result = mysqli_query($conn, $getStudent);
 $studentData = mysqli_fetch_assoc($result);
 $student_id = $studentData['student_id'];
 $student_name = $studentData['student_name'];
-$student_roll = $studentData['student_roll'];
 $attendance = $studentData["$month"];
 
 // post request handle
@@ -141,7 +140,7 @@ if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
     <?php
     if (isset($_POST["scan"]) && $_POST["scan"] == "scan") {
         echo '<script>
-        alert("Name : ' . $student_name . '\nRoll : ' . $student_roll . '\nAttendance Count : ' . $_POST["student_attendance"] . '");
+        alert("Name : ' . $student_name . '\nAttendance Count : ' . $_POST["student_attendance"] . '");
     </script>';
     }
     ?>
